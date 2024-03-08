@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<script>
+document.write("<h1>Javascript Hanoi test!</h1>");
+ 
+var hanoi = function(disc,src,aux,dst){
+if(disc > 0){
+   hanoi(disc - 1,src,dst,aux);
+   document.write('Move disc ' + disc + ' from ' + src + ' to ' + dst + "<br>");
+   hanoi(disc - 1,aux,src,dst);
+}
+}
+var hanoi = function(floor,towerA,towerB,towerC){
+  if(1 == floor){
+    document.write('get ' +towerA +' to ' +towerC+ "<br>");
+  }
+  else{
+    hanoi(floor-1,towerA,towerC,towerB);
+    document.write('get ' +towerA +' to ' +towerC+ "<br>");
+    hanoi(floor-1,towerB,towerA,towerC);
+  }
+}
+hanoi(7,'A','B','C');
+</script>
+
+</body>
+</html>
