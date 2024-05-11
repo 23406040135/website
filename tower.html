@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=3.0">
+    <style>
+      
+        .tower {
+            display: inline-block;
+            margin: 200px;
+            border: 1px solid black;
+            width: 20px;
+            height: 450px;
+            position: relative;
+            background-color: #2196F3;
+            border-radius: 20px;
+        }
+        .cls1 {
+            color: purple;
+        }
+        .layer {
+            position: absolute;
+            background-color: orange;
+            border-radius: 5px;
+             margin-top: 25px; /* 顶部外边距为 50px */
+    margin-right: 25px; /* 右侧外边距为 100px */
+    margin-bottom: 50px; /* 底部外边距为 50px */
+    margin-left: 50px; /* 左侧外边距为 100px */
+        }
+    </style>
+    <style id="dynamic">
+       @keyframes diskmove
+            {
+              0%{left :50px;top:200px}
+              100%{left: 200px;top:500px}
+            }   
+        /* Add any dynamic styles here */
+    </style>
+</head>
+<body>
+    <div class="tower" id="tower1"></div>
+    <div class="tower" id="tower2"></div>
+    <div class="tower" id="tower3"></div>
+    
+    Number of Disks to Play<select id=numdisks ></select>
+<input id=Start type=button onclick=startGame() class=button value=Start >
+<input id=Pause type=button onclick=pauseGame() class=button value=Pause>
+<input id=Resume type=button onclick=resumeGame() class=button value=Resume>
+Period Time<select id=period ></select>
+<script>
+let s = document. getElementById('numdisks');
+for(let N=0; N < 10; N++)
+     s. options[N] =new Option(3+N,3+N);
+s= document.getElementById('period');
+for(let N=0;N<5;N++)
+      s.options[N]=new Option(0.5*(N+1),0.5*(N+1));
+var handle;
+var orderOflnstruction=0;
+
+function startGame()
+{
+  let s=document.getElementByld('numdisks');
+  let N=s.options[s.selecyedIndex].value;
+  tower(N);
+  move(0);
+  moveDisk(0);
+}
+function pauseGame()
+{
+  clearTimeout(handle);
+}
+function resumeGame()
+{
+  moveDisk(orderOflnstruction);
+}
+
+
+        
+    </script>
+
+    
+     <script src="js/Drag.js"></script>
+     <script src="js/hanoi.js"></script> 
+
+</body>
+</html>
+
